@@ -1,4 +1,4 @@
-namespace meowBackendDotnet.Models
+namespace PawsBackendDotnet.Models.Entities
 {
     public enum Sex
     {
@@ -6,7 +6,7 @@ namespace meowBackendDotnet.Models
     }
     public class Pet : EntityBase
     {
-        public string? Name { get; set; }
+        public required string Name { get; set; }
         public string? Type { get; set; }
         public string? Breed { get; set; }
         public Sex Sex { get; set; } = Sex.Male;
@@ -19,11 +19,11 @@ namespace meowBackendDotnet.Models
         public DateTime? LastWalk { get; set; } = DateTime.UtcNow;
         public DateTime? LastMedication { get; set; } = DateTime.UtcNow;
 
+        public Guid UserID { get; set; }
+        public User User { get; set; } = null!;
 
         public void UpdateLastFeed(DateTime newTime) => this.LastFeed = newTime;
-
         public void UpdateLastWalk(DateTime newTime) => this.LastWalk = newTime;
-
         public void UpdateLastMedication(DateTime newTime) => this.LastMedication = newTime;
     }
 }

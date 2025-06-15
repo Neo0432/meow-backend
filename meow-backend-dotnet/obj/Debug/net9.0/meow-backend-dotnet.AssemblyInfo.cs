@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("2b96e3c6-9e26-4273-9647-ba7fe8df6805")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("meow-backend-dotnet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a77c0195ae623234f684c693ecad9bc58e6f9ae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c632e05c57f22f86f4d5fff502e9075757ad43db")]
 [assembly: System.Reflection.AssemblyProductAttribute("meow-backend-dotnet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("meow-backend-dotnet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

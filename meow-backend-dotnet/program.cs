@@ -1,39 +1,20 @@
-using meowBackendDotnet.Models;
+using PawsBackendDotnet.Models.Entities;
+using PawsBackendDotnet.Extensions;
+using dotenv.net;
+using PawsBackendDotnet.Services;
+using PawsBackendDotnet.Services.Interfaces;
 
-var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+DotEnv.Load();
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+builder.Services.AddServices(builder.Configuration);
 
-var app = builder.Build();
+builder.Services.AddScoped<IJwtAuthService, JwtAuthService>();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+WebApplication app = builder.Build();
+app.UseAppMiddleware();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
 
-// app.MapGet("/weatherforecast", () =>
-// {
-//     // var forecast = Enumerable.Range(1, 5).Select(index =>
-//     //     new WeatherForecast
-//     //     (
-//     //         DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-//     //         Random.Shared.Next(-20, 55),
-//     //         summaries[Random.Shared.Next(summaries.Length)]
-//     //     ))
-//     //     .ToArray();
-
-//     var newPet = new Pet({BirthDate: DateTime.UtcNow,})
-//     return newPet;
-// })
-// .WithName("GetWeatherForecast");
 app.MapGet("/mypet", () =>
 {
     var newPet = new Pet
@@ -53,9 +34,6 @@ app.MapGet("/mypet", () =>
     return Results.Ok(newPet);
 }).WithName("GetMyPet");
 
+
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
