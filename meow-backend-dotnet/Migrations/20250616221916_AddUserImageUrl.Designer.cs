@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PawsBackendDotnet.Data;
@@ -11,9 +12,11 @@ using PawsBackendDotnet.Data;
 namespace PawsBackendDotnet.Migrations
 {
     [DbContext(typeof(PawsContext))]
-    partial class PawsContextModelSnapshot : ModelSnapshot
+    [Migration("20250616221916_AddUserImageUrl")]
+    partial class AddUserImageUrl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

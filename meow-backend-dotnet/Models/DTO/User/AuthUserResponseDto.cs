@@ -17,6 +17,7 @@ namespace PawsBackendDotnet.Models.DTO.UserDTOs
         public required string Email { get; set; }
         [Required]
         public string? PhoneNumber { get; set; }
+        public string? ImageUrl { get; set; } = "";
 
         public List<Pet> Pets { get; set; } = [];
     }

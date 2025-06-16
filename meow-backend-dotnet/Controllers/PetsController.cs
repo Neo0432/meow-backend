@@ -9,14 +9,14 @@ namespace PawsBackendDotnet.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/pets")]
     public class PetsController(ILogger<UserController> logger, IMapper mapper, IPetService service) : ControllerBase
     {
         private readonly ILogger<UserController> _logger = logger;
         private readonly IMapper _mapper = mapper;
         private readonly IPetService _service = service;
 
-        [HttpGet("/pets")]
+        [HttpGet]
         public async Task<IActionResult> GetAllPets()
         {
             try
@@ -33,7 +33,7 @@ namespace PawsBackendDotnet.Controllers
             }
         }
 
-        [HttpGet("/pet/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetPetById([FromRoute] Guid id)
         {
             try
@@ -52,7 +52,7 @@ namespace PawsBackendDotnet.Controllers
             }
         }
 
-        [HttpPost("/pet/create")]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateNewPet([FromBody] CreatePetRequestDto petRequestDto)
         {
             try
@@ -69,7 +69,7 @@ namespace PawsBackendDotnet.Controllers
             }
         }
 
-        [HttpPatch("/pet/update/{id}")]
+        [HttpPatch("update/{id}")]
         public async Task<IActionResult> UpdatePet([FromRoute] Guid id, [FromBody] UpdatePetRequestDto updatedPetDto)
         {
             try
@@ -86,7 +86,7 @@ namespace PawsBackendDotnet.Controllers
             }
         }
 
-        [HttpPatch("/pet/update/{id}/feed")]
+        [HttpPatch("update/{id}/feed")]
         public async Task<IActionResult> UpdatePetLastFeedTime([FromRoute] Guid id)
         {
             try
@@ -106,7 +106,7 @@ namespace PawsBackendDotnet.Controllers
             }
         }
 
-        [HttpPatch("/pet/update/{id}/walk")]
+        [HttpPatch("update/{id}/walk")]
         public async Task<IActionResult> UpdatePetLastWalkTime([FromRoute] Guid id)
         {
             try
@@ -126,7 +126,7 @@ namespace PawsBackendDotnet.Controllers
             }
         }
 
-        [HttpPatch("/pet/update/{id}/medication")]
+        [HttpPatch("update/{id}/medication")]
         public async Task<IActionResult> UpdatePetLastMedicationTime([FromRoute] Guid id)
         {
             try
@@ -145,7 +145,7 @@ namespace PawsBackendDotnet.Controllers
             }
         }
 
-        [HttpDelete("/pet/delete/{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeletePet([FromRoute] Guid id)
         {
             try
