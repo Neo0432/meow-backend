@@ -22,8 +22,8 @@ namespace PawsBackendDotnet.Controllers
         }
 
 
-        [HttpGet("user")]
-        public async Task<IActionResult> UserProfile([FromQuery] Guid id)
+        [HttpGet("user/{id}")]
+        public async Task<IActionResult> UserProfile([FromRoute] Guid id)
         {
             try
             {
@@ -31,11 +31,10 @@ namespace PawsBackendDotnet.Controllers
                 if (user == null) return NotFound();
 
                 return Ok(_mapper.Map<ResponseUserDTO>(user));
-
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Error: {ex.Message}"); ;
+                return StatusCode(500, $"Error: {ex.Message}");
             }
 
         }

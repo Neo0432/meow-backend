@@ -1,7 +1,7 @@
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
-namespace PawsBackendDotnet.Extensions
+namespace PawsBackendDotnet.Extensions.ServicesExtensions
 {
     public static class SwaggerServiceExtension
     {

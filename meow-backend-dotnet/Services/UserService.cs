@@ -6,15 +6,10 @@ using PawsBackendDotnet.Data.Repositories.Interfaces;
 
 namespace PawsBackendDotnet.Services
 {
-    public class UserService : IUserService
+    public class UserService(IUserRepository repository) : IUserService
     {
-        private readonly IUserRepository _repository;
+        private readonly IUserRepository _repository = repository;
         private readonly PasswordHasher<User> _passwordHasher = new PasswordHasher<User>();
-
-        public UserService(IUserRepository repository)
-        {
-            _repository = repository;
-        }
 
         public Task<User?> GetUserAsync(Guid id)
         {

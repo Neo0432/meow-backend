@@ -19,7 +19,5 @@ namespace PawsBackendDotnet.Models.DTO.UserDTOs
         public string? PhoneNumber { get; set; }
 
         public List<Pet> Pets { get; set; } = [];
-
-
     }
 }

@@ -22,7 +22,7 @@ namespace PawsBackendDotnet.Services
         public string GenerateToken(User user)
         {
             var claims = new[] {
-                new Claim(JwtRegisteredClaimNames.Sub, user.ID.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.ID.ToString()),
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.SecretKey));
