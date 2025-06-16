@@ -1,4 +1,3 @@
-using PawsBackendDotnet.Models;
 using PawsBackendDotnet.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 

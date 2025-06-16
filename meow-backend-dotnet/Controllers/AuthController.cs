@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using PawsBackendDotnet.Models.DTO.UserDTOs;
 using PawsBackendDotnet.Models.Entities;
@@ -10,12 +11,14 @@ namespace PawsBackendDotnet.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IJwtAuthService _jwtService;
+        private readonly IMapper _mapper;
         private readonly IUserService _userService;
 
-        public AuthController(IJwtAuthService jwtService, IUserService userService)
+        public AuthController(IJwtAuthService jwtService, IUserService userService, IMapper mapper)
         {
             _jwtService = jwtService;
             _userService = userService;
+            _mapper = mapper;
         }
 
         [HttpPost("login")]
@@ -28,7 +31,7 @@ namespace PawsBackendDotnet.Controllers
                 if (user == null) return Unauthorized("Неверный логин или пароль");
 
                 var token = _jwtService.GenerateToken(user);
-                var response = new AuthUserResponseDTO { user = user, token = token };
+                var response = new AuthUserResponseDTO { user = _mapper.Map<ResponseUserDTO>(user), token = token };
 
                 return Ok(response);
             }
@@ -46,7 +49,7 @@ namespace PawsBackendDotnet.Controllers
                 User? user = await _userService.CreateUserAsync(signUpData);
 
                 var token = _jwtService.GenerateToken(user);
-                var response = new AuthUserResponseDTO { user = user, token = token };
+                var response = new AuthUserResponseDTO { user = _mapper.Map<ResponseUserDTO>(user), token = token };
 
                 return Ok(response);
             }

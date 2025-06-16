@@ -2,7 +2,7 @@ namespace PawsBackendDotnet.Models
 {
     public class EntityBase
     {
-        public Guid ID { get; } = Guid.NewGuid();
+        public Guid ID { get; private set; } = Guid.NewGuid();
         public DateTime CreatedAt { get; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 

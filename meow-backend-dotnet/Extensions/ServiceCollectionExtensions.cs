@@ -2,6 +2,10 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using PawsBackendDotnet.Data;
+using PawsBackendDotnet.Data.Repositories;
+using PawsBackendDotnet.Data.Repositories.Interfaces;
+using PawsBackendDotnet.Services;
+using PawsBackendDotnet.Services.Interfaces;
 
 namespace PawsBackendDotnet.Extensions
 {
@@ -31,7 +35,11 @@ namespace PawsBackendDotnet.Extensions
                             $";Password={Environment.GetEnvironmentVariable("DB_PASSWORD")}");
             });
 
+            services.AddAutoMapper(typeof(Program));
+
             services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
 
             return services;
         }
