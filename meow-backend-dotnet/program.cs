@@ -1,5 +1,6 @@
 using PawsBackendDotnet.Models.Entities;
 using PawsBackendDotnet.Extensions;
+using PawsBackendDotnet.Extensions.ServicesExtensions;
 using dotenv.net;
 using PawsBackendDotnet.Services;
 using PawsBackendDotnet.Services.Interfaces;

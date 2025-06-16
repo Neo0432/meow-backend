@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using PawsBackendDotnet.Models.Options;
 
-namespace PawsBackendDotnet.Extensions
+namespace PawsBackendDotnet.Extensions.ServicesExtensions
 {
     public static class JwtAuthentificationEntension
     {

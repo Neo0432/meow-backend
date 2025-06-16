@@ -4,13 +4,9 @@ using PawsBackendDotnet.Models.Entities;
 
 namespace PawsBackendDotnet.Data.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository(PawsContext context) : IUserRepository
     {
-        private readonly PawsContext _context;
-        public UserRepository(PawsContext context)
-        {
-            _context = context;
-        }
+        private readonly PawsContext _context = context;
 
         public async Task<User?> GetByEmailAsync(string? email)
         {

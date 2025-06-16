@@ -21,9 +21,5 @@ namespace PawsBackendDotnet.Models.Entities
 
         public Guid UserID { get; set; }
         public User User { get; set; } = null!;
-
-        public void UpdateLastFeed(DateTime newTime) => this.LastFeed = newTime;
-        public void UpdateLastWalk(DateTime newTime) => this.LastWalk = newTime;
-        public void UpdateLastMedication(DateTime newTime) => this.LastMedication = newTime;
     }
 }
