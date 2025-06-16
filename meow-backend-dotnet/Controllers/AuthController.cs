@@ -28,7 +28,7 @@ namespace PawsBackendDotnet.Controllers
             {
                 User? user = await _userService.LoginUserAsync(loginData);
 
-                if (user == null) return Unauthorized("Неверный логин или пароль");
+                if (user == null) return Unauthorized("Invalid email or password");
 
                 var token = _jwtService.GenerateToken(user);
                 var response = new AuthUserResponseDTO { user = _mapper.Map<ResponseUserDTO>(user), token = token };
@@ -37,7 +37,7 @@ namespace PawsBackendDotnet.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Ошибка сервера: {ex.Message}");
+                return StatusCode(500, $"Error: {ex.Message}");
             }
         }
 
@@ -55,7 +55,7 @@ namespace PawsBackendDotnet.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Ошибка сервера: {ex.Message}");
+                return StatusCode(500, $"Error: {ex.Message}");
             }
         }
 

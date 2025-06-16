@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace PawsBackendDotnet.Extensions
 {
     public static class WebApplicationExtensions
@@ -22,8 +17,8 @@ namespace PawsBackendDotnet.Extensions
                 });
             }
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.MapControllers();
 

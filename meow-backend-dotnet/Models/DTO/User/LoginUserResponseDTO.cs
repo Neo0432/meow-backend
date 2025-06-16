@@ -9,7 +9,7 @@ namespace PawsBackendDotnet.Models.DTO.UserDTOs
         public required ResponseUserDTO user { get; set; }
     }
 
-    public class ResponseUserDTO
+    public class ResponseUserDTO : EntityBase
     {
         public string Username { get; set; } = "User";
 

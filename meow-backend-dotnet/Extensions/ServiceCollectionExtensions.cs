@@ -1,6 +1,4 @@
-using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 using PawsBackendDotnet.Data;
 using PawsBackendDotnet.Data.Repositories;
 using PawsBackendDotnet.Data.Repositories.Interfaces;
@@ -18,13 +16,8 @@ namespace PawsBackendDotnet.Extensions
             services.AddEndpointsApiExplorer();
             services.AddOpenApi();
 
-            services.AddSwaggerGen(options =>
-            {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Meow API", Version = "v1" });
+            services.AddSwaggerService(configuration);
 
-                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
-            });
 
             services.AddDbContext<PawsContext>(options =>
             {
