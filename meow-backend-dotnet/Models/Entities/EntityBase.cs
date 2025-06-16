@@ -1,4 +1,4 @@
-namespace PawsBackendDotnet.Models
+namespace PawsBackendDotnet.Models.Entities
 {
     public class EntityBase
     {
