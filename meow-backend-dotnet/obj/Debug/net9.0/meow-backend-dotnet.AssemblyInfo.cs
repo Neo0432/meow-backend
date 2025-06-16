@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("meow-backend-dotnet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4546d444dad9304a8bdd0ddda73e2aa15148a810")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cea9d89a31a6624e7ed201356d9e8dc3f4ac6da")]
 [assembly: System.Reflection.AssemblyProductAttribute("meow-backend-dotnet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("meow-backend-dotnet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
