@@ -13,9 +13,6 @@ namespace PawsBackendDotnet.Extensions.ServicesExtensions
             var jwtSettings = configuration.GetSection("Jwt");
             var secretKey = jwtSettings["SecretKey"];
 
-            Console.WriteLine($"SecretKey: {secretKey}");
-
-
             services.Configure<JwtOptions>(configuration.GetSection("Jwt"));
             services.AddScoped(sp => sp.GetRequiredService<IOptions<JwtOptions>>().Value);
 
